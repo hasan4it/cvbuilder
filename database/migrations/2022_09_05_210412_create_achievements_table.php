@@ -15,6 +15,12 @@ class CreateAchievementsTable extends Migration
     {
         Schema::create('achievements', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('field');
+            $table->string('contribution');
+            $table->string('description');
+            $table->date('date');
+            $table->integer('userID');
             $table->timestamps();
         });
     }
