@@ -25,6 +25,7 @@ class EducationController extends Controller
     public function create()
     {
         //
+        die('Add education');
     }
 
     /**
@@ -58,6 +59,7 @@ class EducationController extends Controller
     public function edit(Education $education)
     {
         //
+
     }
 
     /**
