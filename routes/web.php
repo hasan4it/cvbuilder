@@ -46,4 +46,10 @@ Route::middleware('auth')->group(function () {
 
     Route::get('add-publications', [PublicationsController::class, 'create'])
                 ->name('publications.add');
+
+    //saving content routes
+
+    Route::post('save-education', [EducationController::class, 'store'])
+                ->name('education.save');
+    
 });

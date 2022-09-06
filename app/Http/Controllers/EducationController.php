@@ -37,6 +37,33 @@ class EducationController extends Controller
     public function store(Request $request)
     {
         //
+
+        $validation = $request->validate([
+            'title' => 'required',
+            'institute' => 'required',
+            'start_date' => 'required',
+            'status' => 'required',
+            'description' => 'required'
+        ]);
+
+        if(!$validation){
+            return back()->withErrors('found some errors');
+        }
+
+        $edu = new Education;
+
+        $edu->title = $request->input('title');
+        $edu->institute = $request->input('institute');
+        $edu->start_date = $request->input('start_date');
+        $edu->end_date = $request->input('end_date');
+        $edu->description = $request->input('description');
+        $edu->status = $request->input('status');
+        $edu->award = $request->input('obtained_marks');
+        $edu->UserID = $request->user()->id;
+        $edu->save();
+
+        return redirect()->route('dashboard', ['message' => 'Education record saved successfully!']);
+
     }
 
     /**
