@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\WorkController;
-use App\Http\Controllers\PublicationController;
+use App\Http\Controllers\PublicationsController;
 use App\Http\Controllers\skillsController;
 use App\Http\Controllers\AchievementsController;
 

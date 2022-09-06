@@ -25,6 +25,7 @@ class PublicationsController extends Controller
     public function create()
     {
         //
+        return view('publications.add');
     }
 
     /**

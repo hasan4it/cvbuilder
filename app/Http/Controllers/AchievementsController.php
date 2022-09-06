@@ -24,7 +24,7 @@ class AchievementsController extends Controller
      */
     public function create()
     {
-        //
+        return view('achievements.add');
     }
 
     /**

@@ -24,7 +24,7 @@ class SkillsController extends Controller
      */
     public function create()
     {
-        //
+        return view('skills.add');
     }
 
     /**

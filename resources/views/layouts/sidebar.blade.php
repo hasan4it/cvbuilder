@@ -1,7 +1,7 @@
  <!--sidebar controls-->
  <div class="col-xs-6 col-sm-3 sidebar-offcanvas" role="navigation">
             <ul class="list-group panel">
-              <li class="list-group-item"><a href="index.html">
+              <li class="list-group-item"><a href="{{ route('dashboard') }}">
                   <i class="glyphicon glyphicon-home"></i>{{ __('Dashboard') }} </a></li>
                 <li class="list-group-item">
                   <i class="glyphicon glyphicon-align-justify"></i> <b>{{ __('CV Components') }}</b></li>
