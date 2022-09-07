@@ -10,6 +10,6 @@ class userMeta extends Model
     use HasFactory;
 
     public function users(){
-        return $this->blongsTo(user::class);
+        return $this->blongsTo(user::class, 'userID');
     }
 }

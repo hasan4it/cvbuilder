@@ -55,7 +55,7 @@ class User extends Authenticatable
      */
     public function work()
     {
-        return $this->hasMany(Work::class);
+        return $this->hasMany(Work::class, 'userID');
     }
 
     /**
@@ -63,7 +63,7 @@ class User extends Authenticatable
      */
     public function Achievement()
     {
-        return $this->hasMany(Achievements::class);
+        return $this->hasMany(Achievements::class, 'userID');
     }
 
     /**
@@ -71,7 +71,7 @@ class User extends Authenticatable
      */
     public function skills()
     {
-        return $this->hasMany(Skills::class);
+        return $this->hasMany(Skills::class, 'userID');
     }
 
     /**
@@ -79,6 +79,6 @@ class User extends Authenticatable
      */
     public function publications()
     {
-        return $this->hasMany(Publications::class);
+        return $this->hasMany(Publications::class, 'userID');
     }
 }
