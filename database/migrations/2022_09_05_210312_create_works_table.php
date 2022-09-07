@@ -18,11 +18,12 @@ class CreateWorksTable extends Migration
             $table->string('title');
             $table->string('employer');
             $table->string('role');
-            $table->string('location');
+            $table->string('location')->nullable();
             $table->string('status');
             $table->date('start_date');
-            $table->date('end_date');
-            $table->integer('userID');
+            $table->date('end_date')->nullable();
+            $table->unsignedBigInteger('userID');
+            $table->foreign('userID')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

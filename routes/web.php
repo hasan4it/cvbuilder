@@ -6,6 +6,7 @@ use App\Http\Controllers\WorkController;
 use App\Http\Controllers\PublicationsController;
 use App\Http\Controllers\skillsController;
 use App\Http\Controllers\AchievementsController;
+use App\Models\{User,Education};
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,10 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+
+    $user = User::findOrFail(1);
+    //  dd($user);
+    return view('dashboard')->with(['user' => $user]);
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

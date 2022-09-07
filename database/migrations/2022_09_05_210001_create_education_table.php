@@ -21,8 +21,9 @@ class CreateEducationTable extends Migration
             $table->string('award');
             $table->string('description');
             $table->date('start_date');
-            $table->date('end_date');
-            $table->integer('userID');
+            $table->date('end_date')->nullable();
+            $table->unsignedBigInteger('userID');
+            $table->foreign('userID')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

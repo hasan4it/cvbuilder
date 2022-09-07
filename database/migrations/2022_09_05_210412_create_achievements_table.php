@@ -17,10 +17,11 @@ class CreateAchievementsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('field');
-            $table->string('contribution');
+            $table->string('contribution')->nullable();
             $table->string('description');
-            $table->date('date');
-            $table->integer('userID');
+            $table->date('date')->nullable();
+            $table->unsignedBigInteger('userID');
+            $table->foreign('userID')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

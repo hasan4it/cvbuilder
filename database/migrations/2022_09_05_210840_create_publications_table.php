@@ -18,11 +18,11 @@ class CreatePublicationsTable extends Migration
             
             $table->string('title');
             $table->string('forum');
-            $table->string('contribution');
+            $table->string('contribution')->nullable();
             $table->string('description');
             $table->date('date');
-            $table->integer('userID');
-
+            $table->unsignedBigInteger('userID');
+            $table->foreign('userID')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -17,9 +17,10 @@ class CreateSkillsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('field');
-            $table->string('level');
-            $table->string('last_use');
-            $table->integer('userID');
+            $table->string('level')->nullable();
+            $table->string('last_use')->nullable();
+            $table->unsignedBigInteger('userID');
+            $table->foreign('userID')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

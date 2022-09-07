@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Achievements extends Model
 {
     use HasFactory;
+
+    public function users(){
+        return $this->blongsTo(user::class);
+    }
 }

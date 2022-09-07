@@ -17,7 +17,8 @@ class CreateUserMetasTable extends Migration
             $table->id();
             $table->string('metakey');
             $table->string('metavalue');
-            $table->integer('userID');
+            $table->unsignedBigInteger('userID');
+            $table->foreign('userID')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
