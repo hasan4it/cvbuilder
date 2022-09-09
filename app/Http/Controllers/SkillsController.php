@@ -24,7 +24,7 @@ class SkillsController extends Controller
      */
     public function create()
     {
-        return view('skills.add');
+        return view('Skills.add');
     }
 
     /**
@@ -36,6 +36,27 @@ class SkillsController extends Controller
     public function store(Request $request)
     {
         //
+        $validation = $request->validate([
+            'skill' => 'required',
+            'field' => 'required',
+            'level' => 'required'
+        ]);
+
+        if(!$validation){
+            return back()->withErrors('found some errors');
+        }
+
+        $skill = new Skills;
+
+        $skill->skill = $request->input('skill');
+        $skill->field = $request->input('field');
+        $skill->last_use = $request->input('last_use');
+        $skill->level = $request->input('level');
+        $skill->UserID = $request->user()->id;
+        $skill->save();
+
+        return redirect()->route('dashboard', ['message' => 'Skill saved successfully!']);
+
     }
 
     /**

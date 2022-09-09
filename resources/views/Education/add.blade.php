@@ -11,36 +11,35 @@
                     <div class="row">
                         <div class="col-md-9">
 
-                            <form method="post" action="{{ route('education.save') }}">
+                            <form method="post" action="{{ route('education.store') }}">
                                 <div class="form-group">
-                                    <label>Title</label>
-                                    <input type="text" name="title" value="" placeholder="Degree title"
-                                        class="form-control">
+                                    <x-label value="Title" />
+                                    <x-input type="text" name="title" value="" placeholder="Degree title" />
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Institute</label>
-                                    <input type="text" name="institute" placeholder="Name of your institute"
-                                        value="" class="form-control">
+                                    <x-label value="Institute" />
+                                    <x-input type="text" name="institute" placeholder="Name of your institute"
+                                        value="" />
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Start date</label>
-                                    <input type="date" name="start_date" value="" class="form-control">
+                                    <x-label value="Start date" />
+                                    <x-input type="date" name="start_date" value="" />
                                 </div>
 
                                 <div class="form-group">
-                                    <label>End date</label>
-                                    <input type="date" name="end_date" value="" class="form-control">
+                                    <x-label value="End date" />
+                                    <x-input type="date" name="end_date" value="" />
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Major Subject</label>
+                                    <x-label value="Major Subject" />
                                     <textarea name="description" placeholder="major subjects covered" class="form-control"></textarea>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Degree Status</label>
+                                    <x-label value="Degree Status" />
                                     <select name="status" class="form-control">
                                         <option value="">Select one</option>
                                         <option value="completed">Completed</option>
@@ -49,9 +48,9 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Obtained marks</label>
-                                    <input type="text" name="obtained_marks" value=""
-                                        placeholder="percentage cgpa etc" class="form-control">
+                                    <x-label value="Obtained marks" />
+                                    <x-input type="text" name="obtained_marks" value=""
+                                        placeholder="percentage cgpa etc" />
                                 </div>
 
                                 <input type="submit" value="Add education" class="btn btn-primary">

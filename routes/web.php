@@ -1,11 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EducationController;
-use App\Http\Controllers\WorkController;
-use App\Http\Controllers\PublicationsController;
-use App\Http\Controllers\skillsController;
-use App\Http\Controllers\AchievementsController;
+use App\Http\Controllers\{EducationController, WorkController, 
+    PublicationsController, SkillsController, AchievementsController};
 use App\Models\{User,Education};
 
 /*
@@ -35,25 +32,16 @@ require __DIR__.'/auth.php';
 
 
 Route::middleware('auth')->group(function () {
-    //Add content routes
-    Route::get('add-education', [EducationController::class, 'create'])
-                ->name('education.add');
+    Route::resources([
+        'work' => WorkController::class,
+        'publication' => PublicationsController::class,
+        'skill' => SkillsController::class,
+        'achievement' => AchievementsController::class,
+        'education' => EducationController::class,
+    ]);
 
-    Route::get('add-work', [WorkController::class, 'create'])
-                ->name('work.add');
-
-    Route::get('add-skills', [SkillsController::class, 'create'])
-                ->name('skills.add');
-
-    Route::get('add-achievements', [achievementsController::class, 'create'])
-                ->name('achievements.add');
-
-    Route::get('add-publications', [PublicationsController::class, 'create'])
-                ->name('publications.add');
-
-    //saving content routes
-
-    Route::post('save-education', [EducationController::class, 'store'])
-                ->name('education.save');
+    Route::get('/settings', function(){
+        return view('settings');
+    })->name('settings');
     
 });

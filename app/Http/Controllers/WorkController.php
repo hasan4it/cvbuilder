@@ -36,6 +36,30 @@ class WorkController extends Controller
     public function store(Request $request)
     {
         //
+        $validation = $request->validate([
+            'title' => 'required',
+            'employer' => 'required',
+            'role' => 'required',
+            'status' => 'required'
+        ]);
+
+        if(!$validation){
+            return back()->withErrors('found some errors');
+        }
+
+        $work = new Work;
+
+        $work->title = $request->input('title');
+        $work->employer = $request->input('employer');
+        $work->start_date = $request->input('start_date');
+        $work->end_date = $request->input('end_date');
+        $work->role = $request->input('role');
+        $work->status = $request->input('status');
+        $work->location = $request->input('location');
+        $work->UserID = $request->user()->id;
+        $work->save();
+
+        return redirect()->route('dashboard', ['message' => 'Work record saved successfully!']);
     }
 
     /**

@@ -88,20 +88,19 @@
                           <tr>
                             <td>Project Title</td>
                             <td>Field of Work</td>
-                            <td>Publication forum</td>
                             <td>Contribution</td>
                             <td>Description</td>
+                            <td>Date</td>
                             <td>Actions</td>
                           </tr>
                         </thead>
                       @forelse($user->achievement as $item)
                           <tr>
                             <td>{{ $item->title }}</td>
-                            <td>{{ $item->institute }}</td>  
-                            <td>{{ $item->start_date }}</td>
-                            <td>{{ $item->end_date }}</td>
-                            <td>{{ $item->status }}</td>
-                            <td>{{ $item->award }}</td>
+                            <td>{{ $item->field }}</td>  
+                            <td>{{ $item->contribution }}</td>
+                            <td>{{ $item->description }}</td>
+                            <td>{{ $item->date }}</td>
                             <td><a href="#{{ $item->id }}" title="edit" >Edit </a> | <a href="#{{ $item->id }}" onclick="confirm('Are you sure to delete?'); ">Delete </a></td>
                           </tr>
                           @empty
@@ -171,9 +170,9 @@
                       @forelse($user->publications as $item)
                           <tr>
                             <td>{{ $item->title }}</td>
-                            <td>{{ $item->institute }}</td>  
-                            <td>{{ $item->start_date }}</td>
-                            <td>{{ $item->end_date }}</td>
+                            <td>{{ $item->forum }}</td>  
+                            <td>{{ $item->date }}</td>
+                            <td>{{ $item->description }}</td>
                             <td><a href="#{{$item->id}}" title="edit" >Edit </a> | <a href="#{{$item->id}}" onclick="confirm('Are you sure to delete?'); ">Delete </a></td>
                           </tr>
                           @empty
@@ -202,12 +201,12 @@
                             <td>Actions</td>
                           </tr>
                         </thead>
-                      @forelse($user->publications as $item)
+                      @forelse($user->skills as $item)
                           <tr>
-                            <td>{{ $item->title }}</td>
-                            <td>{{ $item->institute }}</td>  
-                            <td>{{ $item->start_date }}</td>
-                            <td>{{ $item->end_date }}</td>
+                            <td>{{ $item->skill }}</td>
+                            <td>{{ $item->field }}</td>  
+                            <td>{{ $item->level }}</td>
+                            <td>{{ $item->last_use }}</td>
                             <td><a href="#{{$item->id}}" title="edit" >Edit </a> | <a href="#{{$item->id}}" onclick="confirm('Are you sure to delete?'); ">Delete </a></td>
                           </tr>
                           @empty

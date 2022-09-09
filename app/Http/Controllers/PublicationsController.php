@@ -36,7 +36,28 @@ class PublicationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = $request->validate([
+            'title' => 'required',
+            'forum' => 'required',
+            'date' => 'required',
+            'contribution' => 'required'
+        ]);
+
+        if(!$validation){
+            return back()->withErrors('found some errors');
+        }
+
+        $publications = new Publications;
+
+        $publications->title = $request->input('title');
+        $publications->forum = $request->input('forum');
+        $publications->contribution = $request->input('contribution');
+        $publications->date = $request->input('date');
+        $publications->description = $request->input('description');
+        $publications->UserID = $request->user()->id;
+        $publications->save();
+
+        return redirect()->route('dashboard', ['message' => 'Publications saved successfully!']);
     }
 
     /**

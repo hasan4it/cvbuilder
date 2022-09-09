@@ -36,6 +36,28 @@ class AchievementsController extends Controller
     public function store(Request $request)
     {
         //
+        $validation = $request->validate([
+            'title' => 'required',
+            'field' => 'required',
+            'date' => 'required',
+            'contribution' => 'required'
+        ]);
+
+        if(!$validation){
+            return back()->withErrors('found some errors');
+        }
+
+        $achievement = new Achievements;
+
+        $achievement->title = $request->input('title');
+        $achievement->field = $request->input('field');
+        $achievement->contribution = $request->input('contribution');
+        $achievement->date = $request->input('date');
+        $achievement->description = $request->input('description');
+        $achievement->UserID = $request->user()->id;
+        $achievement->save();
+
+        return redirect()->route('dashboard', ['message' => 'Achievements saved successfully!']);
     }
 
     /**
