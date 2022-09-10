@@ -22,8 +22,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
 
-    $user = User::findOrFail(1);
-    //  dd($user);
+    $user = User::findOrFail(Auth::id());
     return view('dashboard')->with(['user' => $user]);
 })->middleware(['auth'])->name('dashboard');
 
